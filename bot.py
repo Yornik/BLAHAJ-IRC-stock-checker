@@ -1,15 +1,19 @@
 # YHeyl<yornik@yornik.nl> MIT liscense
 # thanks to <mrngm> For help with the headers
 ## todo - YH
-# - pep 8
-# - more parameters (difrent articels and stores/countries would be nice)
-# - docker file 
-# - more IKEA funtions (opening times, price, location in pickupbay)
-# - pushing important events as a messege like a decrese or increse in stock
-# - some nice help text
-# - Maybe in futere ordering via private messages
-# - Intregration with TRÅDFRI RGB bulb
-# - running it in a lack rack
+# - PEP 8
+# - Bot should reply to a person.
+# - Bot should onlly be called if trigger words are the only message.
+# - Not logging all the things. 
+# - More parameters (difrent articels and stores/countries would be nice)
+# - Docker file.
+# - K8s Helm file.
+# - More IKEA funtions. (opening times, price, location in pick up bay)
+# - Pushing important events as a messege like a decrese or increse in stock.
+# - Some nice help text.
+# - Maybe in futere ordering via private messages.
+# - Intregration with TRÅDFRI RGB bulb.
+# - Running it in a lack rack.
 
 
 from irc import *
