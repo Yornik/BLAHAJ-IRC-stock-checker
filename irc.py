@@ -1,6 +1,6 @@
 import socket
 import sys
-
+import time
 
 class IRC:
 
@@ -22,5 +22,6 @@ class IRC:
         self.irc.send(bytes("JOIN " + channel + "\r\n", "UTF-8"))
 
     def get_text(self):
+        time.sleep(1)
         text=self.irc.recv(2040)  #receive the text
         return text
