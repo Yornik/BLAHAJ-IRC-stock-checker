@@ -6,9 +6,9 @@ import json
 import os
 import random
 http = urllib3.PoolManager()
-channel = "##bottest"
+channel = "#revspace"
 server = "irc.freenode.net"
-nickname = "kinroy_bot"
+nickname = "BLAHAJ"
 
 irc = IRC()
 irc.connect(server, channel, nickname)
@@ -38,5 +38,5 @@ while 1:
                 'Consumer': 'MAMMUT',
                  })
         pdata = json.loads(rdata.data.decode('utf-8'))
-        irc.send(channel, "BLÅHAJ op vooraad in Ikea Delft " + str(pdata["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"]))
+        irc.send(channel, "BLÅHAJ op vooraad in Ikea Delft: " + str(pdata["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"])+ " BLÅHAJ`s.🦈")
 

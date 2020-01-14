@@ -11,7 +11,7 @@ class IRC:
 
     def send(self, chan, msg):
         print("PRIVMSG " + chan + " " + msg + "\r\n")
-        self.irc.send(bytes("PRIVMSG " + chan + "\"" + msg + "\"" + "\r\n", "UTF-8"))
+        self.irc.send(bytes("PRIVMSG " + chan + " :" + msg + "\r\n", "UTF-8"))
 
     def connect(self, server, channel, botnick):
         #defines the socket
