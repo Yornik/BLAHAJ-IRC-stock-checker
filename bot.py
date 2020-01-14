@@ -8,7 +8,7 @@ import random
 http = urllib3.PoolManager()
 channel = "#revspace"
 server = "irc.freenode.net"
-nickname = "BLAHAJ"
+nickname = "BLAHAJ_Delft_Bot"
 
 irc = IRC()
 irc.connect(server, channel, nickname)
@@ -29,7 +29,7 @@ while 1:
     if text != bytes('', "utf-8"):
         print(text)
  
-    if bytes("PRIVMSG", "UTF-8") in text and bytes(channel, "utf-8") in text and bytes("!BLÅHAJDelft", "UTF-8") in text:
+    if bytes("PRIVMSG", "UTF-8") in text and bytes(channel, "utf-8") in text and ((bytes("!BLÅHAJ", "UTF-8") in text) or (bytes("!shark", "UTF-8") in text) or (bytes("!BLAHAJ", "UTF-8") in text) or (bytes("!🦈", "UTF-8")) in text ):
         rdata = http.request('GET',
                 "https://iows.ikea.com/retail/iows/nl/nl/stores/151/availability/ART/30373588",
                 headers={
@@ -38,5 +38,5 @@ while 1:
                 'Consumer': 'MAMMUT',
                  })
         pdata = json.loads(rdata.data.decode('utf-8'))
-        irc.send(channel, "BLÅHAJ op vooraad in Ikea Delft: " + str(pdata["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"])+ " BLÅHAJ`s.🦈")
+        irc.send(channel, "BLÅHAJ op vooraad in Ikea Delft: " + str(pdata["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"])+ " 🦈")
 
