@@ -2,9 +2,7 @@
 # thanks to <mrngm> For help with the headers
 ## todo - YH
 # - PEP 8
-# - Bot should reply to a person.
 # - Bot should onlly be called if trigger words are the only message.
-# - Not logging all the things. 
 # - More parameters (difrent articels and stores/countries would be nice)
 # - Docker file.
 # - K8s Helm file.
@@ -26,25 +24,13 @@ import random
 http = urllib3.PoolManager()
 channel = "#revspace"
 server = "irc.freenode.net"
-nickname = "BLAHAJ_Delft_Bot"
+nickname = "BLAHAJ_Delft_Bot_Beta"
 
 irc = IRC()
 irc.connect(server, channel, nickname)
-## Test not needed in production 
-# rdata = http.request('GET',
-#         "https://iows.ikea.com/retail/iows/nl/nl/stores/151/availability/ART/30373588",
-#         headers={
-#         'Contract': '37249',
-#         'Accept': 'application/vnd.ikea.iows+json;version=1.0',
-#         'Consumer': 'MAMMUT',
-#          })
-# pdata = json.loads(rdata.data.decode('utf-8'))
-#print(pdata["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"])
 
 while 1:
     text = irc.get_text()
-#    if text != bytes("", "UTF-8") :
-#       print(text)
     if bytes("PRIVMSG", "UTF-8") in text and bytes(channel, "utf-8") in text and ((bytes("!BLÅHAJ", "UTF-8") in text) or (bytes("!shark", "UTF-8") in text) or (bytes("!BLAHAJ", "UTF-8") in text) or (bytes("!🦈", "UTF-8")) in text ):
         rdata = http.request('GET',
                 "https://iows.ikea.com/retail/iows/nl/nl/stores/151/availability/ART/30373588",
