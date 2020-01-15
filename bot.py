@@ -24,7 +24,7 @@ import random
 http = urllib3.PoolManager()
 channel = "#revspace"
 server = "irc.freenode.net"
-nickname = "BLAHAJ_Delft_Bot_Beta"
+nickname = "BLAHAJ_Delft_Bot"
 
 irc = IRC()
 irc.connect(server, channel, nickname)
