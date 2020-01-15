@@ -43,8 +43,8 @@ irc.connect(server, channel, nickname)
 
 while 1:
     text = irc.get_text()
-    if text != bytes("", "UTF-8") :
-       print(text)
+#    if text != bytes("", "UTF-8") :
+#       print(text)
     if bytes("PRIVMSG", "UTF-8") in text and bytes(channel, "utf-8") in text and ((bytes("!BLÅHAJ", "UTF-8") in text) or (bytes("!shark", "UTF-8") in text) or (bytes("!BLAHAJ", "UTF-8") in text) or (bytes("!🦈", "UTF-8")) in text ):
         rdata = http.request('GET',
                 "https://iows.ikea.com/retail/iows/nl/nl/stores/151/availability/ART/30373588",
@@ -54,4 +54,4 @@ while 1:
                 'Consumer': 'MAMMUT',
                  })
         plain_data = json.loads(rdata.data.decode('utf-8'))
-        irc.send(channel, "BLÅHAJ op vooraad in Ikea Delft: " + str(plain_data["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"])+ " 🦈")
+        irc.send(channel, str(text.split(bytes("!", "UTF-8"))[0])[3:-1] + ": De hoeveelheid BLÅHAJ`s op dit moment bij de IKEA vestiging delft is " + str(plain_data["StockAvailability"]["RetailItemAvailability"]["AvailableStock"]["$"])+ " 🦈")
